@@ -1,0 +1,56 @@
+{
+    "name": "mhvefgh/microlite",
+    "description": "A modern, lightweight, PSR-15 compliant PHP microframework with zero bloat.",
+    "keywords": ["php", "microframework", "lightweight", "psr-15", "api"],
+    "homepage": "https://github.com/mhvefgh/microlite",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mohammad Hossein Vefgh",
+            "email": "vefgh.m.hossein@gmail.com",
+            "role": "Lead Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mhvefgh/microlite/issues",
+        "source": "https://github.com/mhvefgh/microlite"
+    },
+    "require": {
+        "php": ">=8.1",
+        "vlucas/phpdotenv": "^5.6",
+        "nikic/fast-route": "^1.3",
+        "catfan/medoo": "^2.1",
+        "nesbot/carbon": "^3.8",
+        "guzzlehttp/guzzle": "^7.9",
+        "predis/predis": "^2.2",
+        "psr/http-server-middleware": "^1.0",
+        "symfony/console": "^7.1",
+        "symfony/filesystem": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "symfony/var-dumper": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Microlite\\": "src/"
+        },
+        "files": ["src/helpers/helpers.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8000 -t public",
+        "test": "phpunit --colors=always",
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
