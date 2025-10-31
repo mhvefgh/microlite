@@ -1,3 +1,10 @@
+
+<div align="center">
+  <img src="assets/logo_micro.png" alt="Microlite Logo" width="200" />
+  <h1>Microlite</h1>
+  <p><strong>A modern, lightweight, PSR-15 compliant PHP microframework — zero bloat, full control.</strong></p>
+  ...
+</div>
 <div align="center">
 
 # Microlite
