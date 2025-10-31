@@ -1,7 +1,7 @@
 {
     "name": "mhvefgh/microlite",
     "description": "A modern, lightweight, PSR-15 compliant PHP microframework with zero bloat.",
-    "keywords": ["php", "microframework", "lightweight", "psr-15", "api"],
+    "keywords": ["php", "microframework", "lightweight", "psr-15", "api", "fast", "minimal"],
     "homepage": "https://github.com/mhvefgh/microlite",
     "license": "MIT",
     "type": "project",
@@ -9,7 +9,8 @@
         {
             "name": "Mohammad Hossein Vefgh",
             "email": "vefgh.m.hossein@gmail.com",
-            "role": "Lead Developer"
+            "role": "Lead Developer",
+            "homepage": "https://github.com/mhvefgh"
         }
     ],
     "support": {
@@ -50,6 +51,10 @@
         "post-install-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     },
     "minimum-stability": "stable",
     "prefer-stable": true
