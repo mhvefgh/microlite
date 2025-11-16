@@ -1,18 +1,20 @@
 <?php
+
 namespace App\Middleware;
 
-use Src\Core\Middleware;
-use Src\Core\Request;
-use Src\Core\Response;
+use Src\Core\MiddlewareInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Laminas\Diactoros\Response\RedirectResponse;
 
-class AuthMiddleware extends Middleware
+class AuthMiddleware implements MiddlewareInterface
 {
-    public function handle(Request $request, Response $response, callable $next): Response
+    public function process(ServerRequestInterface $request, callable $next): ResponseInterface
     {
-        if (!$request->isAuthenticated()) {
-            return $response->setStatusCode(401)->setBody("Unauthorized - Please log in");
+        if (empty($_SESSION['user'])) {
+            return new RedirectResponse('/login');
         }
 
-        return $next($request, $response);
+        return $next($request);
     }
 }

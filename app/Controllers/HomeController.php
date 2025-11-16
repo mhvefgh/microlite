@@ -1,26 +1,30 @@
 <?php
+
 namespace App\Controllers;
 
 use Src\Core\Controller;
 use Src\Core\Request;
-use Src\Core\Response;
-use Src\Core\View;
+
+/**
+ * Home Controller - Sample controller for the framework
+ */
 class HomeController extends Controller
 {
-    public function index(Request $req, Response $res): string
+    /**
+     * Display the homepage
+     *
+     * @param Request $req
+     * @return string Rendered view
+     */
+    public function index(Request $req): string
     {
-        $db = $this->app->getDb();
-        $users = $db->select('users', ['id', 'name', 'email']);
+        $user = auth(); // Get authenticated user (or null)
 
-        return View::render('index', ['users' => $users]);
-    }
-
-    public function hello(Request $req, Response $res): string
-    {
-        // Sample: maybe later you’ll get data from DB using Medoo
-        $users = ['Alice', 'Bob', 'Charlie'];
-
-        // Render the view and pass data
-        return View::render('home', ['users' => $users]);
+        return view('index', [
+            'title' => 'Welcome to MiniFrame',
+            'user'  => $user,
+            'framework' => 'MiniFrame v1.0',
+            'tagline'   => 'A lightweight, fast and clean PHP framework'
+        ], 'layouts.main');
     }
 }

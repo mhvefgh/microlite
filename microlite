@@ -1,0 +1,24 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Src\Core\Console\AboutCommand;
+use Src\Core\Console\MakeControllerCommand;
+use Src\Core\Console\MakeModelCommand;
+use Src\Core\Console\CacheClearCommand;
+use Src\Core\Console\ServeCommand;
+$app = new Application('Microlite CLI', '1.0.0');
+
+$app->add(new AboutCommand());
+$app->add(new MakeControllerCommand());
+$app->add(new MakeModelCommand());
+$app->add(new CacheClearCommand());
+$app->add(new ServeCommand());
+
+
+
+
+// $app->setDefaultCommand('about', true);
+$app->setDefaultCommand('about');
+$app->run();
